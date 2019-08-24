@@ -44,6 +44,15 @@ return state;
 }
 
 
+// fifth reducer
+const reviewReducer = (state = [], action) => {
+    if (action.type === 'REVIEW_WAY') {
+        return action.payload
+    }
+return state;
+}
+
+
 // reduxStore
 // storing the reducers in the "store" 
 const reduxStore = createStore(
@@ -52,7 +61,8 @@ const reduxStore = createStore(
         feelingReducer,
         understandingReducer,
         supportReducer,
-        commentReducer
+        commentReducer,
+        reviewReducer
     }),
     applyMiddleware(logger)
 )

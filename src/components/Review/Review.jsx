@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class Review extends Component {
 
     state = {
-        review: '',
+        review: " ",
     }
 
     handleChange = (event) => {
@@ -20,6 +20,12 @@ class Review extends Component {
     };
 
     handleClick = () => {
+        let action = {
+          type: "REVIEW_WAY",
+          payload: this.state
+        };
+        this.props.dispatch(action);
+
         this.props.history.push('/success')
     };
 
@@ -27,7 +33,12 @@ class Review extends Component {
     return (
       <div>
         <h1>Review Page</h1>
-        <input type="text" className="textarea" onChange={this.handleChange}></input>
+        <input
+          type="text"
+          className="textarea"
+          onChange={this.handleChange}
+          placeholder="type your review here"
+        ></input>
         <button onClick={this.handleClick}>NEXT</button>
         {JSON.stringify(this.state)}
       </div>

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class Comment extends Component {
 
     state = {
-        comment: '',
+        comment: " ",
     }
 
     handleChange = (event) => {
@@ -12,14 +12,20 @@ class Comment extends Component {
             comment: event.target.value
         })
         console.log(this.state);
-        let action = {
-            type: "COMMENT_WAY",
-            payload: this.state
-        }
-        this.props.dispatch(action);
+        // let action = {
+        //     type: "COMMENT_WAY",
+        //     payload: this.state
+        // }
+        // this.props.dispatch(action);
     };
 
     handleClick = () => {
+        let action = {
+            type: "COMMENT_WAY",
+            payload: this.state
+        };
+        this.props.dispatch(action);
+
         this.props.history.push('/review')
     };
 
@@ -27,7 +33,12 @@ class Comment extends Component {
     return (
       <div>
         <h1>Any comments you want to leave?</h1>
-        <input type="text" className="textarea" onChange={this.handleChange}></input>
+        <input
+          type="text"
+          className="textarea"
+          onChange={this.handleChange}
+          placeholder="type your comments here"
+        ></input>
         <button onClick={this.handleClick}>NEXT</button>
         {JSON.stringify(this.state)}
       </div>

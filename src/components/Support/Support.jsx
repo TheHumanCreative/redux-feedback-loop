@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class Support extends Component {
 
     state = {
-        support: '',
+        support: " ",
     }
 
     handleChange = (event) => {
@@ -12,22 +12,33 @@ class Support extends Component {
             support: event.target.value
         })
         console.log(this.state);
-        let action = {
-            type: "SUPPORT_WAY",
-            payload: this.state
-        }
-        this.props.dispatch(action);
+        // let action = {
+        //     type: "SUPPORT_WAY",
+        //     payload: this.state
+        // }
+        // this.props.dispatch(action);
     };
 
     handleClick = () => {
-        this.props.history.push('/comment');
+        let action = {
+          type: "SUPPORT_WAY",
+          payload: this.state
+        };
+        this.props.dispatch(action);
+
+        this.props.history.push('/comment');  
     }
 
   render() {
     return (
       <div>
         <h1>How well are you being supported?</h1>
-        <input type="number" className="textarea" onChange={this.handleChange}></input>
+        <input 
+        type="number"
+        className="textarea" 
+        onChange={this.handleChange}
+        placeholder="type number 1 - 5 here"
+         ></input>
         <button onClick={this.handleClick}>NEXT</button>
         {JSON.stringify(this.state)}
       </div>

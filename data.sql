@@ -6,13 +6,13 @@ CREATE DATABASE "prime_feedback";
 CREATE TABLE "feedback" (
   "id" serial primary key,
   "feeling" VARCHAR
-(1000) INT not null,
+(1000) || INT not null,
   "understanding" VARCHAR
-(1000)INT not null,
+(1000) || INT not null,
   "support" VARCHAR
-(1000)INT not null,
+(1000) || INT not null,
   "comments" VARCHAR
-(1000) text,
+(1000) || text,
   "flagged" boolean default false,
   "date" date not null default CURRENT_DATE
 ); 

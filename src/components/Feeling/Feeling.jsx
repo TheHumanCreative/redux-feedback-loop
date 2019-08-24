@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 class Feeling extends Component {
   state = {
-    feeling: "",
+    feeling: " ",
   };
 
 //   componentDidMount() {
@@ -40,15 +40,20 @@ class Feeling extends Component {
       feeling: event.target.value
     });
     console.log(this.state);
-    let action = {
-        type: "FEELING_WAY",
-        payload: this.state
-    }
-    this.props.dispatch(action);
+    // let action = {
+    //     type: "FEELING_WAY",
+    //     payload: this.state
+    // }
+    // this.props.dispatch(action);
   }
 
 
   handleClick = () => {
+      let action = {
+        type: "FEELING_WAY",
+        payload: this.state
+      };
+      this.props.dispatch(action);
     this.props.history.push("/understand");
   };
 
@@ -60,7 +65,7 @@ class Feeling extends Component {
           type="number"
           className="textarea"
           onChange={this.handleChange}
-          placeholder="type here"
+          placeholder="type number 1 - 5 here"
         ></input>
         {/* <input
         type="1"
@@ -94,4 +99,10 @@ class Feeling extends Component {
   }
 }
 
-export default connect()(Feeling);
+const mapReduxStateToProps = reduxStore => {
+  return {
+    reduxStore
+  };
+};
+
+export default connect(mapReduxStateToProps)(Feeling);
