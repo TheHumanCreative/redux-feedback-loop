@@ -2,9 +2,44 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class Understanding extends Component {
+
+    state = {
+        understand: '',
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            understand: event.target.value
+        })
+        console.log(this.state);
+        let action = {
+            type: "UNDERSTANDING_WAY",
+            payload: this.state
+        }
+        this.props.dispatch(action);
+    }
+
+    handleClick = () => {
+        this.props.history.push('/support');
+    }
+
   render() {
-    return <div>I AM THE UNDERSTANDING PAGE</div>;
+    return (
+      <div>
+        <h1>How well are you understanding the content?</h1>
+        <input type="number" className="textarea" onChange={this.handleChange}></input>
+        <button onClick={this.handleClick}>NEXT</button>
+        {JSON.stringify(this.state)}
+      </div>
+    );
   }
 }
 
-export default connect()(Understanding);
+const mapReduxStateToProps = reduxStore => {
+    return {
+        reduxStore
+    }
+}
+
+
+export default connect(mapReduxStateToProps)(Understanding);

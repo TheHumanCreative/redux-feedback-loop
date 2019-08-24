@@ -2,9 +2,44 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class Review extends Component {
+
+    state = {
+        review: '',
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            review: event.target.value
+        })
+        console.log(this.state)
+        let action = {
+            type: "REVIEW_WAY",
+            payload: this.state
+        }
+        this.props.dispatch(action);
+    };
+
+    handleClick = () => {
+        this.props.history.push('/success')
+    };
+
   render() {
-    return <div>I AM THE REVIEW PAGE</div>;
+    return (
+      <div>
+        <h1>Review Page</h1>
+        <input type="text" className="textarea" onChange={this.handleChange}></input>
+        <button onClick={this.handleClick}>NEXT</button>
+        {JSON.stringify(this.state)}
+      </div>
+    );
   }
 }
 
-export default connect()(Review);
+const mapReduxStateToProps = reduxStore => {
+    return {
+        reduxStore
+    }
+}
+
+
+export default connect(mapReduxStateToProps)(Review);
