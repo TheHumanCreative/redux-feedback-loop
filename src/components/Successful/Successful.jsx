@@ -42,7 +42,7 @@ class Successful extends Component {
           this.props.dispatch({
             type: "CLEAR_WAY"
           });
-          this.props.history.push('/');
+          this.props.history.push('/thankyou');
         })
         .catch(error => {
           console.log('error in POST', error);
@@ -89,8 +89,10 @@ class Successful extends Component {
             </tr>
           </tbody>
         </table>
-        
-        <button onClick={this.handleClick}>COMPLETED</button>
+
+        <button className="nextBtn" onClick={this.handleClick}>
+          COMPLETED
+        </button>
       </div>
     );
   }

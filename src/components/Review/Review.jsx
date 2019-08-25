@@ -29,14 +29,16 @@ class Review extends Component {
       <div>
         <h1>Review Page</h1>
         <input
-          required
+          //   required
           type="text"
           className="textarea"
           onChange={this.handleChange}
           placeholder="type your review here"
         ></input>
-        <button onClick={this.handleClick}>NEXT</button>
-        {JSON.stringify(this.state)}
+        <button className="nextBtn" onClick={this.handleClick}>
+          NEXT
+        </button>
+        {/* {JSON.stringify(this.state)} */}
       </div>
     );
   }

@@ -29,14 +29,16 @@ class Comment extends Component {
       <div>
         <h1>Any comments you want to leave?</h1>
         <input
-          required
+          //   required
           type="text"
           className="textarea"
           onChange={this.handleChange}
           placeholder="type your comments here"
         ></input>
-        <button onClick={this.handleClick}>NEXT</button>
-        {JSON.stringify(this.state)}
+        <button className="nextBtn" onClick={this.handleClick}>
+          NEXT
+        </button>
+        {/* {JSON.stringify(this.state)} */}
       </div>
     );
   }

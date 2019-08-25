@@ -28,15 +28,17 @@ class Support extends Component {
     return (
       <div>
         <h1>How well are you being supported?</h1>
-        <input 
-        required
-        type="number"
-        className="textarea" 
-        onChange={this.handleChange}
-        placeholder="type number 1 - 5 here"
-         ></input>
-        <button onClick={this.handleClick}>NEXT</button>
-        {JSON.stringify(this.state)}
+        <input
+          // required
+          type="number"
+          className="textarea"
+          onChange={this.handleChange}
+          placeholder="type number 1 - 5 here"
+        ></input>
+        <button className="nextBtn" onClick={this.handleClick}>
+          NEXT
+        </button>
+        {/* {JSON.stringify(this.state)} */}
       </div>
     );
   }

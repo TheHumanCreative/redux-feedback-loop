@@ -12,11 +12,6 @@ class Understanding extends Component {
             understand: event.target.value
         })
         console.log(this.state);
-        // let action = {
-        //     type: "UNDERSTANDING_WAY",
-        //     payload: this.state
-        // }
-        // this.props.dispatch(action);
     }
 
     handleClick = () => {
@@ -34,14 +29,16 @@ class Understanding extends Component {
       <div>
         <h1>How well are you understanding the content?</h1>
         <input
-        required 
-        type="number"
-        className="textarea" 
-        onChange={this.handleChange}
-        placeholder="type number 1 - 5 here"
+          // required
+          type="number"
+          className="textarea"
+          onChange={this.handleChange}
+          placeholder="type number 1 - 5 here"
         ></input>
-        <button onClick={this.handleClick}>NEXT</button>
-        {JSON.stringify(this.state)}
+        <button className="nextBtn" onClick={this.handleClick}>
+          NEXT
+        </button>
+        {/* {JSON.stringify(this.state)} */}
       </div>
     );
   }

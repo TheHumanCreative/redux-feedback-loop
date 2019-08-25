@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import axios from 'axios';
 import { connect } from "react-redux";
-
+// import TextField from "@material-ui/core/TextField";
 class Feeling extends Component {
   state = {
     feeling: " ",
@@ -29,8 +29,16 @@ class Feeling extends Component {
     return (
       <div>
         <h1>How are you feeling today?</h1>
-        <input
+        {/* <TextField
           required
+          id="standard-required"
+          label="Required"
+          defaultValue="Hello World"
+          className={classes.textField}
+          margin="normal"/> */}
+        
+        <input
+          //   required
           type="number"
           className="textarea"
           onChange={this.handleChange}
@@ -61,8 +69,8 @@ class Feeling extends Component {
         type="radio"
         name="feeling"
         onClick={event => this.handleChange()}></input> */}
-        <button onClick={this.handleClick}>NEXT</button>
-        {JSON.stringify(this.state)}
+        <button className="nextBtn" onClick={this.handleClick}>NEXT</button>
+        {/* {JSON.stringify(this.state)} */}
       </div>
     );
   }
