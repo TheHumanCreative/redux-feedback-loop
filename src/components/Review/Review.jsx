@@ -12,11 +12,6 @@ class Review extends Component {
             review: event.target.value
         })
         console.log(this.state)
-        let action = {
-            type: "REVIEW_WAY",
-            payload: this.state
-        }
-        this.props.dispatch(action);
     };
 
     handleClick = () => {
@@ -34,6 +29,7 @@ class Review extends Component {
       <div>
         <h1>Review Page</h1>
         <input
+          required
           type="text"
           className="textarea"
           onChange={this.handleChange}

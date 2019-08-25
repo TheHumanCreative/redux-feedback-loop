@@ -10,13 +10,8 @@ class Support extends Component {
     handleChange = (event) => {
         this.setState({
             support: event.target.value
-        })
+        });
         console.log(this.state);
-        // let action = {
-        //     type: "SUPPORT_WAY",
-        //     payload: this.state
-        // }
-        // this.props.dispatch(action);
     };
 
     handleClick = () => {
@@ -27,13 +22,14 @@ class Support extends Component {
         this.props.dispatch(action);
 
         this.props.history.push('/comment');  
-    }
+    };
 
   render() {
     return (
       <div>
         <h1>How well are you being supported?</h1>
         <input 
+        required
         type="number"
         className="textarea" 
         onChange={this.handleChange}

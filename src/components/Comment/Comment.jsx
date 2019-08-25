@@ -12,11 +12,6 @@ class Comment extends Component {
             comment: event.target.value
         })
         console.log(this.state);
-        // let action = {
-        //     type: "COMMENT_WAY",
-        //     payload: this.state
-        // }
-        // this.props.dispatch(action);
     };
 
     handleClick = () => {
@@ -34,6 +29,7 @@ class Comment extends Component {
       <div>
         <h1>Any comments you want to leave?</h1>
         <input
+          required
           type="text"
           className="textarea"
           onChange={this.handleChange}

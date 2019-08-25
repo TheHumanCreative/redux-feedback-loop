@@ -10,48 +10,90 @@ import logger from 'redux-logger';
 
 //first reducer
 const feelingReducer = (state = [], action) => {
-    if (action.type === 'FEELING_WAY') {
-    return action.payload
+    switch (action.type) { 
+    case 'FEELING_WAY':
+    return action.payload;
+    case 'CLEAR_WAY':
+    return [];
+    default:return state;
 }
-return state;
 }
-
+// targets the value from the feeling component
+// holds onto the value and returns the payload 
+// value and appends it to the DOM upon calling
+// the reducer and the state of the component. 
 
 //second reducer
 const understandingReducer = (state = [], action) => {
-    if (action.type === 'UNDERSTANDING_WAY') {
-        return action.payload
-    }
-return state;
+    switch (action.type) {
+    case 'UNDERSTANDING_WAY':
+    return action.payload;
+    case 'CLEAR_WAY':
+    return [];
+    default: return state;
 }
-
+}
+// targets the value from the understand component
+// holds onto the value and returns the payload 
+// value and appends it to the DOM upon calling
+// the reducer and the state of the component. 
 
 //third reducer
 const supportReducer = (state = [], action) => {
-    if (action.type === 'SUPPORT_WAY') {
-        return action.payload
-    }
-return state;
+    switch (action.type) {
+    case 'SUPPORT_WAY':
+    return action.payload;
+    case 'CLEAR_WAY':
+    return [];
+    default: return state;
 }
-
+}
+// targets the value from the support component
+// holds onto the value and returns the payload 
+// value and appends it to the DOM upon calling
+// the reducer and the state of the component. 
 
 //fourth reducer
 const commentReducer = (state = [], action) => {
-    if (action.type === 'COMMENT_WAY') {
-        return action.payload
-    }
-return state;
+    switch (action.type) {
+    case 'COMMENT_WAY':
+    return action.payload;
+    case 'CLEAR_WAY':
+    return [];
+    default: return state;
 }
-
+}
+// targets the value from the comment component
+// holds onto the value and returns the payload 
+// value and appends it to the DOM upon calling
+// the reducer and the state of the component. 
 
 // fifth reducer
 const reviewReducer = (state = [], action) => {
-    if (action.type === 'REVIEW_WAY') {
-        return action.payload
-    }
-return state;
+    switch (action.type) {
+    case 'REVIEW_WAY':
+    return action.payload;
+    case 'CLEAR_WAY':
+    return [];
+    default: return state;
 }
+}
+// targets the value from the review component
+// holds onto the value and returns the payload 
+// value and appends it to the DOM upon calling
+// the reducer and the state of the component. 
 
+// sixth reducer 
+// const addFeedBackReducer = (state = [], action) => {
+//     if (action.type === 'CLEAR_WAY') {
+//         return {}
+//     }
+// return reduxStore 
+// }
+// targets the value from the WHOLE LIST component
+// holds onto the value and returns the payload 
+// value and appends it to the DOM upon calling
+// the reducer and the state of the component. 
 
 // reduxStore
 // storing the reducers in the "store" 
@@ -62,7 +104,8 @@ const reduxStore = createStore(
         understandingReducer,
         supportReducer,
         commentReducer,
-        reviewReducer
+        reviewReducer,
+        // addFeedBackReducer
     }),
     applyMiddleware(logger)
 )

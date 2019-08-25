@@ -1,23 +1,64 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 
 
 class Successful extends Component {
 
-    // state = {
-    //   successful: " ",
-    // }
+  // state = {
+  //   feedback : reduxStore,
+  // }
 
-    // handleChange = (event) => {
-    //   this.setState({
-    //     successful: event.target.value
-    //   })
-    //   console.log(this.state)
+    // addFeedBack = (event) => {
+    //   event.preventDefault();
+    //   console.log(this.state.feedback);
+    //   axios
+    //     .post('/success', this.state.feedback)
+    //     .then( response => {
+    //       this.props.dispatch({
+    //         type: "CLEAR_WAY"
+    //       });
+    //       this.props.history.push("/");
+    //       console.log(response.data);
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //     });
     // }
 
     handleClick = () => {
-      this.props.history.push('/')
-    }
+      let feedback = this.props.reduxStore;
+      let info = {
+        feeling: feedback.feelingReducer.feeling,
+        understanding: feedback.understandingReducer.understand,
+        support: feedback.supportReducer.support,
+        comments: feedback.commentReducer.comment,
+        review: feedback.reviewReducer.review,
+      } 
+      axios
+        .post('/dailyFeedBack', info)
+        .then( response => {
+          console.log('success POST to DB',response);
+          this.props.dispatch({
+            type: "CLEAR_WAY"
+          });
+          this.props.history.push('/');
+        })
+        .catch(error => {
+          console.log('error in POST', error);
+        });
+
+      }
+
+      // let action = {
+      //   type: 'CLEAR_WAY',
+      //   payload: this.feedback
+      // }
+      // this.props.dispatch(action);
+      // this.props.history.push('/');
+
+
+  
 
   render() {
     return (
@@ -48,20 +89,7 @@ class Successful extends Component {
             </tr>
           </tbody>
         </table>
-        {/* <input onChange={this.handleChange}></input> */}
-        {/* <div class="input-group input-group-lg">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-lg">
-              Large
-            </span>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-lg"
-          ></input>
-        </div> */}
+        
         <button onClick={this.handleClick}>COMPLETED</button>
       </div>
     );

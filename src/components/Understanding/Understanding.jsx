@@ -33,7 +33,8 @@ class Understanding extends Component {
     return (
       <div>
         <h1>How well are you understanding the content?</h1>
-        <input 
+        <input
+        required 
         type="number"
         className="textarea" 
         onChange={this.handleChange}

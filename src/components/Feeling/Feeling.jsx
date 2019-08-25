@@ -7,45 +7,13 @@ class Feeling extends Component {
     feeling: " ",
   };
 
-//   componentDidMount() {
-//     this.getFeelings();
-//   }
-
-//   getFeelings = () => {
-//     axios
-//       .get('/', this.state.feeling)
-//       .then(response => {
-//         this.props.dispatch({
-//           type: "FEELING_WAY",
-//           payload: response.data
-//         });
-//         console.log(response.data);
-//       })
-//       .catch(error => {
-//         console.log(error);
-//       });
-//   };
-
-//   createFeelingList = (event) => {
-//       let feelingList = this.props.reduxStore.feelingList.map(feedback, i) => {
-//           return (
-//               <FeelingListItem key={i} getFeelings={this.props.getFeelings} feedback={feedback} />
-//           )
-//       }
-//     return feelingList;
-//   }
 
   handleChange = event => {
     this.setState({
       feeling: event.target.value
     });
     console.log(this.state);
-    // let action = {
-    //     type: "FEELING_WAY",
-    //     payload: this.state
-    // }
-    // this.props.dispatch(action);
-  }
+  };
 
 
   handleClick = () => {
@@ -62,6 +30,7 @@ class Feeling extends Component {
       <div>
         <h1>How are you feeling today?</h1>
         <input
+          required
           type="number"
           className="textarea"
           onChange={this.handleChange}
