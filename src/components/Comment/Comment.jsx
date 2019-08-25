@@ -2,27 +2,35 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class Comment extends Component {
+  state = {
+    comment: " "
+  };
 
-    state = {
-        comment: " ",
-    }
+  handleClickBack = () => {
+    this.props.history.push('/support');
+  };
 
-    handleChange = (event) => {
-        this.setState({
-            comment: event.target.value
-        })
-        console.log(this.state);
+  handleChange = event => {
+    this.setState({
+      comment: event.target.value
+    });
+    console.log(this.state);
+  };
+
+  handleClick = () => {
+    // if(this.state.comment === '') {some type of alert }
+    // else {this.props.dispatch({
+    //     type: 'COMMENT_WAY',
+    //  payload:  this.state.comment})
+    // this.props.history.push('/review') }
+    let action = {
+      type: "COMMENT_WAY",
+      payload: this.state
     };
+    this.props.dispatch(action);
 
-    handleClick = () => {
-        let action = {
-            type: "COMMENT_WAY",
-            payload: this.state
-        };
-        this.props.dispatch(action);
-
-        this.props.history.push('/review')
-    };
+    this.props.history.push("/review");
+  };
 
   render() {
     return (
@@ -35,6 +43,9 @@ class Comment extends Component {
           onChange={this.handleChange}
           placeholder="type your comments here"
         ></input>
+        <button className="backBtn" onClick={this.handleClickBack}>
+          BACK
+        </button>
         <button className="nextBtn" onClick={this.handleClick}>
           NEXT
         </button>

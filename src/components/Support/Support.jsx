@@ -4,8 +4,13 @@ import { connect } from "react-redux";
 class Support extends Component {
 
     state = {
-        support: " ",
+        support: "",
     }
+
+    handleClickBack = () => {
+        this.props.history.push('/understand')
+    }
+
 
     handleChange = (event) => {
         this.setState({
@@ -15,6 +20,10 @@ class Support extends Component {
     };
 
     handleClick = () => {
+        if(this.state.support === "") 
+        { alert('Please provide number in field') } 
+        
+        else {
         let action = {
           type: "SUPPORT_WAY",
           payload: this.state
@@ -23,11 +32,13 @@ class Support extends Component {
 
         this.props.history.push('/comment');  
     };
+}
 
   render() {
     return (
       <div>
         <h1>How well are you being supported?</h1>
+
         <input
           // required
           type="number"
@@ -35,6 +46,9 @@ class Support extends Component {
           onChange={this.handleChange}
           placeholder="type number 1 - 5 here"
         ></input>
+        <button className="backBtn" onClick={this.handleClickBack}>
+          BACK
+        </button>
         <button className="nextBtn" onClick={this.handleClick}>
           NEXT
         </button>

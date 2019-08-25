@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import './App.css';
 import {HashRouter as Router, Route} from 'react-router-dom';
 import {connect} from 'react-redux'; 
@@ -12,15 +11,10 @@ import Successful from '../Successful/Successful';
 import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
 import Thankyou from '../Thankyou/Thankyou';
+import Admin from '../Admin/Admin';
 
 
 class App extends Component {
-
-  // componentDidMount() {
-  //   this.getFeelings
-  // }
-
-  
 
   render() {
     return (
@@ -39,6 +33,7 @@ class App extends Component {
           <Route path="/review" component={Review} />
           <Route path="/success" component={Successful} />
           <Route path="/thankyou" component={Thankyou} />
+          <Route path="/admin" component={Admin} />
           <br />
         </div>
       </Router>

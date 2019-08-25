@@ -89,7 +89,7 @@ class Successful extends Component {
             </tr>
           </tbody>
         </table>
-
+        
         <button className="nextBtn" onClick={this.handleClick}>
           COMPLETED
         </button>
