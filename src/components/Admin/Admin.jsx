@@ -30,12 +30,9 @@ class Admin extends Component {
       });
   };
 
-//   handleChange = event => {
-//     this.setState({
-//       admin: event.target.value
-//     });
-//     console.log(this.state);
-//   };
+  handleDelete = () => {
+      
+  }
 
   render() {
     // SUPER IMPORTANT TO NAME THE THINGS AFTER THE DATABASE ITEMS..MAKES IT EASIER!
@@ -48,7 +45,8 @@ class Admin extends Component {
             <td>{database.support}</td>
             <td>{database.comments}</td>
             <td>{database.review}</td>
-            {/* <td>{database.admin}</td> */}
+            <td><button onClick={this.handleDelete}>DELETE</button></td>
+            {/* <td>{database.delete}</td> // want this to be the delete icon and option*/}
           </tr>
         );
       }
