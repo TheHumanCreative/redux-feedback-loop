@@ -15,7 +15,7 @@ CREATE TABLE "feedback" (
 ); 
 
 -- Sample feedback item
-INSERT INTO "feedback" ("feeling", "understanding", "support", "comments", "review", "admin")
+INSERT INTO "feedback" ("feeling", "understanding", "support", "comments", "review")
 VALUES (4, 4, 5, 'Doing Great!', 'Love this Class!');
 
 DELETE FROM "feedback" WHERE id=$1
