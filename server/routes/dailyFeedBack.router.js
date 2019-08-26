@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool')
 
 router.get('/', (req, res) => {
-  pool.query('SELECT * FROM "prime_feedback" ORDER BY "id" DESC;').then((result) => {
+  pool.query('SELECT * FROM "feedback" ORDER BY "id" DESC;').then((result) => {
     res.send(result.rows);
   }).catch((error) => {
     console.log('error in GET', error);
@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
   console.log('adding the new feedback', newFeedBack);
   
 
-  let queryText = `INSERT INTO "prime_feedback" ("feeling", "understanding", "support", "comments", "review")
+  let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments", "review")
 VALUES ($1, $2, $3, $4, $5);`;
   pool.query(queryText, [newFeedBack.feeling, newFeedBack.understanding, newFeedBack.support, newFeedBack.comments, newFeedBack.review])
   .then(results => {
@@ -30,7 +30,7 @@ VALUES ($1, $2, $3, $4, $5);`;
 
 router.delete('/:id', (req, res) => {
   let newDeleteFeedItem = req.params.id
-  let queryText = `DELETE FROM "prime_feedback" WHERE id=$1`;
+  let queryText = `DELETE FROM "feedback" WHERE id=$1`;
   console.log("deleting the old feedback:", newDeleteFeedItem);
   
   pool
