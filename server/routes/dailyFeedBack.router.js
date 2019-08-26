@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool')
 
 router.get('/', (req, res) => {
-  pool.query('SELECT * FROM "feedback";').then((result) => {
+  pool.query('SELECT * FROM "feedback" ORDER BY "id" DESC;').then((result) => {
     res.send(result.rows);
   }).catch((error) => {
     console.log('error in GET', error);

@@ -87,7 +87,7 @@ const reviewReducer = (state = [], action) => {
 const addFeedBackReducer = (state = [], action) => {
     switch (action.type) {
     case 'ADD_WAY':
-    return action.payload
+    return action.payload;
     default: return state;
     } 
 }
