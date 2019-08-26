@@ -43,6 +43,8 @@ class Admin extends Component {
   };
 
   render() {
+
+    
     // SUPER IMPORTANT TO NAME THE THINGS AFTER THE DATABASE ITEMS..MAKES IT EASIER!
     let databaseinfo = this.props.reduxStore.addFeedBackReducer.map(
       database => {
@@ -64,6 +66,8 @@ class Admin extends Component {
     return (
       <div>
         <h1>ADMIN</h1>
+
+        <p>Welcome to the Admin Page</p>
         {/* {JSON.stringify(this.props.reduxStore.addFeedBackReducer)} */}
         {/* <input
           // required
@@ -72,7 +76,7 @@ class Admin extends Component {
           onChange={this.handleChange}
           placeholder=""
         ></input> */}
-
+        <h2>Information Displayed  from Feedback Table of our Database</h2>
         <table className="table table table-hover table-striped ">
           <thead>
             <tr>

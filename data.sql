@@ -5,16 +5,11 @@ CREATE DATABASE "prime_feedback";
 -- Table to store the feedback
 CREATE TABLE "feedback" (
   "id" serial primary key,
-  "feeling" VARCHAR
-(1000) || INT not null,
-  "understanding" VARCHAR
-(1000) || INT not null,
-  "support" VARCHAR
-(1000) || INT not null,
-  "comments" VARCHAR
-(1000) || text,
-  "review" VARCHAR 
-(1000) || text,
+  "feeling" INT not null,
+  "understanding" INT not null,
+  "support" INT not null,
+  "comments" text,
+  "review" text, 
   "flagged" boolean default false,
   "date" date not null default CURRENT_DATE
 ); 

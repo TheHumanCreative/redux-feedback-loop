@@ -4,14 +4,14 @@ import {HashRouter as Router, Route} from 'react-router-dom';
 import {connect} from 'react-redux'; 
 import "./bootstrap.css";
 
-import Comment from '../Comment/Comment';
-import Feeling from '../Feeling/Feeling';
-import Review from '../Review/Review';
-import Successful from '../Successful/Successful';
-import Support from '../Support/Support';
-import Understanding from '../Understanding/Understanding';
-import Thankyou from '../Thankyou/Thankyou';
-import Admin from '../Admin/Admin';
+import Comment from '../Comment/Comment'; // shows a comments page which is for the user to type in a comment of the day.
+import Feeling from '../Feeling/Feeling'; // shows a feelings page in which is again taking in a number.
+import Review from '../Review/Review'; // shows a review page which is for the user to type in a review of the day.
+import Successful from '../Successful/Successful'; // shows a finished the loop with the results of each page to the user and then takes them to the thankyou.
+import Support from '../Support/Support'; // shows a support page which is again taking in a number.
+import Understanding from '../Understanding/Understanding'; // shows an understanding page which takes in a number (NEED TO GET THE VALIDATION ON NUMBERS).
+import Thankyou from '../Thankyou/Thankyou'; // shows a thankyou page to the user and gives option for Restart or Admin ( LOG_IN WOULD BE IMPLEMENTED ).
+import Admin from '../Admin/Admin'; // shows the database on the DOM and allows to DELETE item from DB.
 
 
 class App extends Component {
