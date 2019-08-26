@@ -15,7 +15,7 @@ class Thankyou extends Component {
         return (
             <div>
                 <h1>THANK YOU FOR YOUR FEEDBACK</h1>
-            <button className="restart" onClick={this.handleClick}>RESTART</button>
+            <button className="restart" onClick={this.handleClickRestart}>RESTART</button>
             <button className="admin" onClick={this.handleClickAdmin}>ADMIN</button>
             </div>
         )

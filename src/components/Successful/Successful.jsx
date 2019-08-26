@@ -5,26 +5,6 @@ import axios from "axios";
 
 class Successful extends Component {
 
-  // state = {
-  //   feedback : reduxStore,
-  // }
-
-    // addFeedBack = (event) => {
-    //   event.preventDefault();
-    //   console.log(this.state.feedback);
-    //   axios
-    //     .post('/success', this.state.feedback)
-    //     .then( response => {
-    //       this.props.dispatch({
-    //         type: "CLEAR_WAY"
-    //       });
-    //       this.props.history.push("/");
-    //       console.log(response.data);
-    //     })
-    //     .catch(error => {
-    //       console.log(error);
-    //     });
-    // }
 
     handleClick = () => {
       let feedback = this.props.reduxStore;
@@ -35,6 +15,12 @@ class Successful extends Component {
         comments: feedback.commentReducer.comment,
         review: feedback.reviewReducer.review,
       } 
+      // let action = {
+      //   type: 'ADD_WAY',
+      //   payload: this.feedback
+      // }
+      // this.props.dispatch(action);
+      // this.props.history.push('/');
       axios
         .post('/dailyFeedBack', info)
         .then( response => {
@@ -49,15 +35,6 @@ class Successful extends Component {
         });
 
       }
-
-      // let action = {
-      //   type: 'CLEAR_WAY',
-      //   payload: this.feedback
-      // }
-      // this.props.dispatch(action);
-      // this.props.history.push('/');
-
-
   
 
   render() {
@@ -89,7 +66,7 @@ class Successful extends Component {
             </tr>
           </tbody>
         </table>
-        
+
         <button className="nextBtn" onClick={this.handleClick}>
           COMPLETED
         </button>

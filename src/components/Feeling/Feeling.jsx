@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 
 class Feeling extends Component {
   state = {
-    feeling: "",
+    feeling: ""
   };
-
 
   handleChange = event => {
     this.setState({
@@ -14,67 +13,62 @@ class Feeling extends Component {
     console.log(this.state);
   };
 
-
   handleClick = () => {
-
-    if(this.state.feeling === "") 
-    { alert('Please insert value') } 
-
-    else {
+    if (this.state.feeling === "") {
+      alert("Please insert value");
+    } else {
       let action = {
         type: "FEELING_WAY",
         payload: this.state
       };
       this.props.dispatch(action);
-    this.props.history.push('/understand');
+      this.props.history.push("/understand");
+    }
   };
-  }
   render() {
     return (
       <div>
-        
-          <div>
-            <h1>How are you feeling today?</h1>
+        <div>
+          <h1>How are you feeling today?</h1>
 
-            <input
+          <input
             //   required=""
-              type="number"
-              className="textarea"
-              onChange={this.handleChange}
-              placeholder="type number 1 - 5 here"
-            ></input>
-            {/* <input
+            type="number"
+            className="textarea"
+            onChange={this.handleChange}
+            placeholder="type number 1 - 5 here"
+          ></input>
+          {/* <input
         type="1"
         type="radio"
         name="feeling"
         onClick={event => this.handleChange()}></input> */}
-            {/* <input
+          {/* <input
         type="2"
         type="radio"
         name="feeling"
         onClick={event => this.handleChange()}></input> */}
-            {/* <input
+          {/* <input
         type="3"
         type="radio"
         name="feeling"
         onClick={event => this.handleChange()}></input> */}
-            {/* <input
+          {/* <input
         type="4"
         type="radio"
         name="feeling"
         onClick={event => this.handleChange()}></input> */}
-            {/* <input
+          {/* <input
         type="5"
         type="radio"
         name="feeling"
         onClick={event => this.handleChange()}></input> */}
 
-            <button className="nextBtn" onClick={this.handleClick}>
-              NEXT
-            </button>
-            {/* {JSON.stringify(this.state)} */}
-          </div>
-    
+          <button className="nextBtn" onClick={this.handleClick}>
+            NEXT
+          </button>
+          {/* {JSON.stringify(this.state)} */}
+        </div>
       </div>
     );
   }

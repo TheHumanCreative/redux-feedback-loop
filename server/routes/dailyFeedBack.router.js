@@ -1,23 +1,15 @@
 const express = require('express');
 const router = express.Router();
-
 const pool = require('../modules/pool')
 
-//   getFeelings = () => {
-//     axios
-//       .get('/', this.state.feeling)
-//       .then(response => {
-//         this.props.dispatch({
-//           type: "FEELING_WAY",
-//           payload: response.data
-//         });
-//         console.log(response.data);
-//       })
-//       .catch(error => {
-//         console.log(error);
-//       });
-//   };
-
+router.get('/', (req, res) => {
+  pool.query('SELECT * FROM "feedback";').then((result) => {
+    res.send(result.rows);
+  }).catch((error) => {
+    console.log('error in GET', error);
+    res.sendStatus(500);
+  });
+})
 
 router.post('/', (req, res) => {
   let newFeedBack = req.body;

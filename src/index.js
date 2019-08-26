@@ -84,12 +84,13 @@ const reviewReducer = (state = [], action) => {
 // the reducer and the state of the component. 
 
 // sixth reducer 
-// const addFeedBackReducer = (state = [], action) => {
-//     if (action.type === 'CLEAR_WAY') {
-//         return {}
-//     }
-// return reduxStore 
-// }
+const addFeedBackReducer = (state = [], action) => {
+    switch (action.type) {
+    case 'ADD_WAY':
+    return action.payload
+    default: return state;
+    } 
+}
 // targets the value from the WHOLE LIST component
 // holds onto the value and returns the payload 
 // value and appends it to the DOM upon calling
@@ -105,7 +106,7 @@ const reduxStore = createStore(
         supportReducer,
         commentReducer,
         reviewReducer,
-        // addFeedBackReducer
+        addFeedBackReducer
     }),
     applyMiddleware(logger)
 )
