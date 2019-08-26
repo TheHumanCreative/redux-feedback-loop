@@ -27,5 +27,22 @@ VALUES ($1, $2, $3, $4, $5);`;
     res.sendStatus(500);
   })
 })
+
+router.delete('/:id', (req, res) => {
+  let newDeleteFeedItem = req.params.id
+  let queryText = `DELETE FROM "feedback" WHERE id=$1`;
+  console.log("deleting the old feedback:", newDeleteFeedItem);
+  
+  pool
+    .query(queryText, [newDeleteFeedItem])
+    .then(result => {
+      console.log("in DELETE router:", result);
+      res.sendStatus(200);
+    })
+    .catch(error => {
+      console.log("Error DELETE", error);
+      res.sendStatus(500);
+    });
+});
     
 module.exports = router;

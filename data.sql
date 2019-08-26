@@ -15,12 +15,14 @@ CREATE TABLE "feedback" (
 (1000) || text,
   "review" VARCHAR 
 (1000) || text,
-  "admin" VARCHAR 
-(1000) || text,
   "flagged" boolean default false,
   "date" date not null default CURRENT_DATE
 ); 
 
 -- Sample feedback item
 INSERT INTO "feedback" ("feeling", "understanding", "support", "comments", "review", "admin")
-VALUES (4, 4, 5, 'Doing Great!', 'Love this Class!', 'Test');
+VALUES (4, 4, 5, 'Doing Great!', 'Love this Class!');
+
+DELETE FROM "feedback" WHERE id=$1
+
+-- DROP TABLE "feedback";

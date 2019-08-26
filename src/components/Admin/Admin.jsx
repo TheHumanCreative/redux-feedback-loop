@@ -30,9 +30,17 @@ class Admin extends Component {
       });
   };
 
-  handleDelete = () => {
-      
-  }
+  handleDelete = (id) => {
+    axios
+      .delete(`/dailyFeedBack/${id}`)
+      .then(response => {
+        console.log("delete axios", response);
+        this.getFeelings();
+      })
+      .catch(error => {
+        console.log('error in axios', error);
+      })
+  };
 
   render() {
     // SUPER IMPORTANT TO NAME THE THINGS AFTER THE DATABASE ITEMS..MAKES IT EASIER!
@@ -45,8 +53,9 @@ class Admin extends Component {
             <td>{database.support}</td>
             <td>{database.comments}</td>
             <td>{database.review}</td>
-            <td><button onClick={this.handleDelete}>DELETE</button></td>
-            {/* <td>{database.delete}</td> // want this to be the delete icon and option*/}
+            <td>
+              <button onClick={() => this.handleDelete(database.id)}>DELETE</button>
+            </td>
           </tr>
         );
       }
@@ -63,7 +72,7 @@ class Admin extends Component {
           onChange={this.handleChange}
           placeholder=""
         ></input> */}
-        
+
         <table className="table table table-hover table-striped ">
           <thead>
             <tr>
